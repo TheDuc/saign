@@ -109,6 +109,16 @@ limitations under the License.
 
     </div><!-- /.panel -->
 
+    <label>model.json</label>
+    <input id="json-upload" name="json-upload" type="file" />
+    <label>model.weights.bin</label>
+    <input id="weights-upload" name="weights-upload" type="file" />
+
+    <button id="load">
+      <img width="66" height="66" src="./images/button.svg" />
+      <span id="train-status">LOAD MODEL</span>
+    </button>
+
     <div class="panel" id="button-panel"></div>
 
     <div class="output" id="output"></div>

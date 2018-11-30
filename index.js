@@ -120,9 +120,19 @@ async function train() {
     callbacks: {
       onBatchEnd: async (batch, logs) => {
         ui.trainStatus('Loss: ' + logs.loss.toFixed(5));
-      }
+      },
+      onTrainEnd: async (batch, logs) => {
+        model.save('downloads://model');
+      },
     }
   });
+}
+
+async function loadModel() {
+  const jsonUpload = document.getElementById('json-upload');
+  const weightsUpload = document.getElementById('weights-upload');
+
+  model = await tf.loadModel(tf.io.browserFiles([jsonUpload.files[0], weightsUpload.files[0]]));
 }
 
 let isPredicting = false;
@@ -164,9 +174,11 @@ document.getElementById('train').addEventListener('click', async () => {
   train();
 });
 document.getElementById('predict').addEventListener('click', () => {
-  // ui.startPacman();
   isPredicting = true;
   predict();
+});
+document.getElementById('load').addEventListener('click', () => {
+  loadModel();
 });
 
 async function init() {

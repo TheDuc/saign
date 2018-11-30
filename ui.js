@@ -16,7 +16,8 @@
  */
 import * as tf from '@tensorflow/tfjs';
 
-const CONTROLS = ['a', 'b', 'c', 'd', 'e', 'f'];
+// const CONTROLS = ['a', 'b', 'c', 'd', 'e', 'f', 'g', 'h', 'i', 'j', 'k', 'l', 'm', 'n', 'o', 'p', 'q', 'r', 's', 't', 'u', 'v', 'w', 'x', 'y', 'z'];
+const CONTROLS = ['a', 'b'];
 
 export function init() {
   document.getElementById('controller').style.display = '';
