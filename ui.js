@@ -63,8 +63,21 @@ const denseUnitsElement = document.getElementById('dense-units');
 export const getDenseUnits = () => +denseUnitsElement.value;
 const statusElement = document.getElementById('status');
 
+let previousClassId = 0;
+let timer;
+
 export function predictClass(classId) {
-  // google.pacman.keyPressed(CONTROL_CODES[classId]);
+  if (classId !== previousClassId) {
+    const prevbox = document.getElementById(CONTROLS[previousClassId] + '-box');
+    prevbox.classList.remove('active');
+    const box = document.getElementById(CONTROLS[classId] + '-box');
+    box.classList.add('active');
+    clearTimeout(timer);
+    timer = setTimeout(function () {
+      document.getElementById('output').innerHTML = document.getElementById('output').innerHTML + CONTROLS[classId];
+    }, 250);
+    previousClassId = classId;
+  }
   console.log(classId, CONTROLS[classId]);
   document.body.setAttribute('data-active', CONTROLS[classId]);
 }
