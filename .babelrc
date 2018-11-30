@@ -6,7 +6,7 @@
         "esmodules": false,
         "targets": {
           "browsers": [
-            "> 3%"
+            "> 10%"
           ]
         }
       }

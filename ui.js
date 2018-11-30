@@ -17,12 +17,11 @@
 import * as tf from '@tensorflow/tfjs';
 
 const CONTROLS = ['a', 'b', 'c', 'd', 'e', 'f', 'g', 'h', 'i', 'j', 'k', 'l', 'm', 'n', 'o', 'p', 'q', 'r', 's', 't', 'u', 'v', 'w', 'x', 'y', 'z'];
-// const CONTROLS = ['a', 'b'];
 
 export function init() {
-  document.getElementById('controller').style.display = '';
   document.getElementById('cam').style.display = '';
   document.getElementById('saign-logo').style.display = '';
+  document.getElementById('controller').classList.add('show');
   statusElement.style.display = 'none';
 }
 
@@ -36,7 +35,8 @@ CONTROLS.forEach((control) => {
   <div class="panel-cell panel-cell-center">
     <div class="thumb-box" id="${control}-box">
       <div class="thumb-box-outer">
-        <div class="thumb-box-inner">
+        <p>${control}</p>
+        <div class="thumb-box-inner" style="background-image: url(./${control}.png); background-size: cover">
           <canvas class="thumb" width=224 height=224 id="${control}-thumb"></canvas>
         </div>
         <button class="record-button" id="${control}"/><span>Add Sample</span></button>

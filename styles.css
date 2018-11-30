@@ -100,11 +100,17 @@ header b {
   display: flex;
   flex-direction: row;
   margin: 9px auto 0;
-  position: absolute;
+  position: fixed;
   z-index: 1;
-  bottom: 0;
+  bottom: -100px;
   width: 100%;
   background: #000000b0;
+  opacity: 0;
+  transition: 1s all ease-out;
+}
+.controller-panels.show {
+  opacity: 1;
+  bottom: 0;
 }
 .panel {
   box-sizing: border-box;
@@ -162,7 +168,7 @@ header b {
 #button-panel{
   width: 70%;
   padding-left: 15px;
-  overflow: scroll
+  overflow-x: scroll;
 }
 
 #load span{
@@ -435,9 +441,11 @@ header b {
   position: fixed;
   font-size: 60px;
   padding: 40px;
-  top: 40vh;
+  line-height: 68px;
+  top: 35vh;
   text-align: center;
-  width: 100%;
+  width: calc(100% - 80px);
   color: white;
   text-shadow: 0 0 6px black;
+  word-wrap: break-word;
 }
