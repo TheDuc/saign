@@ -16,11 +16,11 @@
  */
 import * as tf from '@tensorflow/tfjs';
 
-const CONTROLS = ['a', 'b', 'c', 'd', 'e', 'f', 'g', 'h', 'i', 'j', 'k', 'l', 'm', 'n', 'o', 'p', 'q', 'r', 's', 't', 'u', 'v', 'w', 'x', 'y', 'z'];
+const CONTROLS = ['a', 'b', 'c', 'd', 'e', 'f', 'g', 'h', 'i', 'j', 'k', 'l', 'm', 'n', 'o', 'p', 'q', 'r', 's', 't', 'u', 'v', 'w', 'x', 'y', 'z', '-'];
 
 export function init() {
-  document.getElementById('cam').style.display = '';
-  document.getElementById('saign-logo').style.display = '';
+  document.getElementById('cam').classList.add('show');
+  document.getElementById('saign-logo').classList.add('show');
   document.getElementById('controller').classList.add('show');
   statusElement.style.display = 'none';
 }
@@ -77,7 +77,11 @@ export function predictClass(classId) {
     box.classList.add('active');
     clearTimeout(timer);
     timer = setTimeout(function () {
-      document.getElementById('output').innerHTML = document.getElementById('output').innerHTML + CONTROLS[classId];
+      if (CONTROLS[classId] === '-') {
+        document.getElementById('output').innerHTML = document.getElementById('output').innerHTML + ' ';
+      } else {
+        document.getElementById('output').innerHTML = document.getElementById('output').innerHTML + CONTROLS[classId];
+      }
     }, 250);
     previousClassId = classId;
   }
