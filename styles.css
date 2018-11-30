@@ -1,5 +1,5 @@
 /**
- * Copyright 2018 Google LLC. All Rights Reserved.
+ * Copyright 2018 Coffee IT. All Rights Reserved.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -53,7 +53,7 @@ header b {
 #status {
   color: #f8f8f8;
   font-weight: 300;
-  margin: 12px 0;
+  margin: 312px 0;
   text-align: center;
 }
 
@@ -104,7 +104,6 @@ header b {
   z-index: 1;
   bottom: 0;
   width: 100%;
-  padding: 15px;
   background: #000000b0;
 }
 .panel {
@@ -115,16 +114,30 @@ header b {
 }
 .panel:first-child {
   border-right: 1px dashed #565656;
-  padding: 0 22px 0 13px;
-  width: 396px;
+  padding: 20px 20px 0px 20px;
+  width: 220px;
 }
 .panel:last-child {
-  padding: 0 9px 0 22px;
+  padding: 0 20px 0 22px;
   width: 353px;
 }
+
+#file-upload{
+  width: 280px;
+  border-right: 1px dashed #565656;
+  padding: 20px 0 0 20px;
+  color: #fff;
+}
+
+.model-title{
+  color: #fff;
+  position: absolute;
+  left: 515px;
+  top: 10px;
+}
+
 .panel-row {
-  display: flex;
-  flex-direction: row;
+  
 }
 .panel-cell {
   align-items: center;
@@ -138,6 +151,17 @@ header b {
 .panel-cell-fill {
   flex-grow: 1;
 }
+
+#button-panel{
+  width: 70%;
+  padding-left: 15px;
+  overflow: scroll
+}
+
+#load span{
+  background: #333;
+}
+
 .panel-cell p {
   color: #8b8b8b;
   font-size: 10px;
@@ -159,28 +183,30 @@ header b {
 
 /** Training panel. **/
 .big-buttons {
-  justify-content: space-between;
 }
 .big-buttons button {
   align-items: center;
   display: flex;
   flex-direction: row;
+  margin-top:10px;
+  margin-bottom: 28px;
+  width: 100%;
 }
 .big-buttons button span {
-  border-bottom: 2px solid #484848;
-  border-top: 2px solid #484848;
-  color: #aaa;
+  color: #fff;
+  background: #A052FF;
   display: inline-block;
   font-size: 18px;
   font-weight: 500;
-  padding: 9px 11px;
-  text-align: left;
+  padding: 13px 22px;
+  text-align: center;
   text-transform: uppercase;
   white-space: nowrap;
+  width: 100%;
 }
 .params-webcam-row {
   align-items: flex-start;
-  display: flex;
+  display: none;
   flex-direction: row;
   justify-content: space-between;
   margin-top: 35px;
@@ -200,6 +226,7 @@ header b {
   bottom: 0;
   width: 100%;
   height: 100%; 
+  transform: scaleX(-1);
   overflow: hidden;
 }
 
@@ -317,7 +344,7 @@ header b {
   transition: box-shadow 0.3s;
 }
 .thumb-box.active .thumb-box-outer {
-  box-shadow: 0 0 4px 4px #ffaa00;
+  box-shadow: 0 0 4px 4px #A052FF;
 }
 .thumb-box-inner {
   border: 1px solid #585858;
@@ -368,4 +395,31 @@ header b {
   color: white;
   padding: 30px;
   line-height: 30px;
+}
+
+
+.spinner {
+  width: 40px;
+  height: 40px;
+  background-color: #A052FF;
+  margin: 100px auto;
+  -webkit-animation: sk-rotateplane 1.2s infinite ease-in-out;
+  animation: sk-rotateplane 1.2s infinite ease-in-out;
+}
+@-webkit-keyframes sk-rotateplane {
+  0% { -webkit-transform: perspective(120px) }
+  50% { -webkit-transform: perspective(120px) rotateY(180deg) }
+  100% { -webkit-transform: perspective(120px) rotateY(180deg)  rotateX(180deg) }
+}
+@keyframes sk-rotateplane {
+  0% { 
+    transform: perspective(120px) rotateX(0deg) rotateY(0deg);
+    -webkit-transform: perspective(120px) rotateX(0deg) rotateY(0deg) 
+  } 50% { 
+    transform: perspective(120px) rotateX(-180.1deg) rotateY(0deg);
+    -webkit-transform: perspective(120px) rotateX(-180.1deg) rotateY(0deg) 
+  } 100% { 
+    transform: perspective(120px) rotateX(-180deg) rotateY(-179.9deg);
+    -webkit-transform: perspective(120px) rotateX(-180deg) rotateY(-179.9deg);
+  }
 }

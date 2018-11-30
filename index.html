@@ -17,16 +17,20 @@ limitations under the License.
 <html>
 <head>
   <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
-  <title>Webcam Pacman</title>
+  <title>SAIGN by Coffee IT</title>
   <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
   <link rel="stylesheet" href="https://code.getmdl.io/1.3.0/material.cyan-teal.min.css" />
   <link href="https://fonts.googleapis.com/css?family=Roboto:300,400,500" rel="stylesheet">
   <script defer src="https://code.getmdl.io/1.3.0/material.min.js"></script>
+  <script src="https://cdnjs.com/libraries/bodymovin" type="text/javascript"></script>
   <link rel="stylesheet" href="./styles.css">
 </head>
 <body>
 
-  <div id="status">Loading mobilenet...</div>
+  <div id="status">
+    <img src="./images/logo.png" width="200px" />
+    <div class="spinner"></div>
+</div>
 
   <div class="webcam-box-inner">
     <video autoplay playsinline muted id="webcam" width="224" height="224"></video>
@@ -39,11 +43,9 @@ limitations under the License.
       <!-- Big buttons. -->
       <div class="panel-row big-buttons">
         <button id="train">
-          <img width="66" height="66" src="./images/button.svg" />
           <span id="train-status">TRAIN MODEL</span>
         </button>
         <button id="predict">
-          <img width="66" height="66" src="./images/button.svg" />
           <span>PLAY</span>
         </button>
       </div><!-- /.panel-row -->
@@ -109,16 +111,16 @@ limitations under the License.
 
     </div><!-- /.panel -->
 
-    <label>model.json</label>
-    <input id="json-upload" name="json-upload" type="file" />
-    <label>model.weights.bin</label>
-    <input id="weights-upload" name="weights-upload" type="file" />
-
-    <button id="load">
-      <img width="66" height="66" src="./images/button.svg" />
-      <span id="train-status">LOAD MODEL</span>
-    </button>
-
+    <div id="file-upload"  class="big-buttons">
+      <label>model.json</label>
+      <input id="json-upload" name="json-upload" type="file" />
+      <label>model.weights.bin</label>
+      <input id="weights-upload" name="weights-upload" type="file" />
+      <button id="load">
+          <span id="train-status">LOAD MODEL</span>
+      </button>
+    </div>
+    <label class="model-title">Custom model</label>
     <div class="panel" id="button-panel"></div>
 
     <div class="output" id="output"></div>
@@ -126,5 +128,16 @@ limitations under the License.
   </div><!-- /#controller -->
 
   <script src="index.js"></script>
+  <script>
+      var animData = {
+          wrapper: document.getElementById('bodymovin'),
+          animType: 'html',
+          loop: true,
+          prerender: true,
+          autoplay: true,
+          path: 'images/loading.json'
+      };
+      var anim = bodymovin.loadAnimation(animData);
+  </script>
 </body>
 </html>
