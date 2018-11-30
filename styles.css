@@ -187,18 +187,35 @@ header b {
   display: inline-block;
   padding: 9px;
 }
+
 .webcam-box-inner {
-  border: 1px solid #585858;
-  border-radius: 4px;
-  box-sizing: border-box;
-  display: flex;
-  justify-content: center;
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  width: 100%;
+  height: 100%; 
   overflow: hidden;
-  width: 160px;
 }
+
+.webcam-box-inner video {
+  /* Make video to at least 100% wide and tall */
+  min-width: 100%; 
+  min-height: 100%; 
+  
+  /* Setting width & height to auto prevents the browser from stretching or squishing the video */
+  width: auto;
+  height: auto;
+  
+  /* Center the video */
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%,-50%);
+}
+
 #webcam {
-  height: 160px;
-  transform: scaleX(-1);
+  /* height: 100%;
+  transform: scaleX(-1); */
 }
 .hyper-params {
   display: flex;
