@@ -182,6 +182,9 @@ document.getElementById('predict').addEventListener('click', () => {
 document.getElementById('load').addEventListener('click', () => {
   loadModel();
 });
+document.getElementById('saign-logo').addEventListener('click', () => {
+  ui.clearText();
+});
 
 async function init() {
   try {

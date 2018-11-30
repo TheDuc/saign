@@ -82,7 +82,7 @@ export function predictClass(classId) {
       } else {
         document.getElementById('output').innerHTML = document.getElementById('output').innerHTML + CONTROLS[classId];
       }
-    }, 250);
+    }, 500);
     previousClassId = classId;
   }
   document.body.setAttribute('data-active', CONTROLS[classId]);
@@ -96,6 +96,9 @@ export function donePredicting() {
 }
 export function trainStatus(status) {
   trainStatusElement.innerText = status;
+}
+export function clearText() {
+  document.getElementById('output').innerHTML = '';
 }
 
 export let addExampleHandler;
