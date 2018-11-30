@@ -122,7 +122,9 @@ async function train() {
         ui.trainStatus('Loss: ' + logs.loss.toFixed(5));
       },
       onTrainEnd: async (batch, logs) => {
-        model.save('downloads://model');
+        if (confirm("Training completed. Download model?")) {
+          model.save('downloads://model');
+        }
       },
     }
   });
