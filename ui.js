@@ -22,6 +22,7 @@ const CONTROLS = ['a', 'b', 'c', 'd', 'e', 'f', 'g', 'h', 'i', 'j', 'k', 'l', 'm
 export function init() {
   document.getElementById('controller').style.display = '';
   document.getElementById('cam').style.display = '';
+  document.getElementById('saign-logo').style.display = '';
   statusElement.style.display = 'none';
 }
 
