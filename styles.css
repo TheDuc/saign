@@ -100,11 +100,16 @@ header b {
   display: flex;
   flex-direction: row;
   margin: 9px auto 0;
+  position: absolute;
+  z-index: 1;
+  bottom: 0;
+  width: 100%;
+  padding: 15px;
+  background: #000000b0;
 }
 .panel {
   box-sizing: border-box;
   display: flex;
-  flex-direction: column;
   flex-grow: 1;
   flex-shrink: 0;
 }
@@ -125,6 +130,7 @@ header b {
   align-items: center;
   display: flex;
   flex-direction: column;
+  margin: 10;
   flex-grow: 0;
   justify-content: center;
   position: relative;
@@ -307,7 +313,6 @@ header b {
   border-radius: 4px;
   box-sizing: border-box;
   display: inline-block;
-  padding: 9px;
   position: relative;
   transition: box-shadow 0.3s;
 }
@@ -321,10 +326,10 @@ header b {
   display: flex;
   justify-content: center;
   overflow: hidden;
-  width: 66px;
+  width: 80px;
 }
 .thumb {
-  height: 66px;
+  height: 80px;
   transform: scaleX(-1);
 }
 .thumb-box-outer .record-button {
