@@ -16,12 +16,36 @@
  */
 import * as tf from '@tensorflow/tfjs';
 
-const CONTROLS = ['a', 'b', 'c', 'd', 'e'];
+const CONTROLS = ['a', 'b', 'c', 'd', 'e', 'f'];
 
 export function init() {
   document.getElementById('controller').style.display = '';
   statusElement.style.display = 'none';
 }
+
+export function numClasses() {
+  return CONTROLS.length;
+}
+
+let html = '';
+CONTROLS.forEach((control) => {
+  html += `
+  <div class="panel-cell panel-cell-center">
+    <div class="thumb-box" id="${control}-box">
+      <div class="thumb-box-outer">
+        <div class="thumb-box-inner">
+          <canvas class="thumb" width=224 height=224 id="${control}-thumb"></canvas>
+        </div>
+        <button class="record-button" id="${control}"/><span>Add Sample</span></button>
+      </div>
+      <p>
+        <span id="${control}-total">0</span> examples
+      </p>
+    </div>
+  </div>`
+});
+
+document.getElementById('button-panel').innerHTML = html;
 
 const trainStatusElement = document.getElementById('train-status');
 
@@ -68,7 +92,8 @@ const thumbDisplayed = {};
 async function handler(label) {
   mouseDown = true;
   const className = CONTROLS[label];
-  const button = document.getElementById(className);
+  const box = document.getElementById(className + '-box');
+  box.classList.add('active');
   const total = document.getElementById(className + '-total');
   while (mouseDown) {
     addExampleHandler(label);
@@ -76,17 +101,17 @@ async function handler(label) {
     total.innerText = totals[label]++;
     await tf.nextFrame();
   }
+  box.classList.remove('active');
   document.body.removeAttribute('data-active');
 }
 
 
 CONTROLS.forEach((control, index) => {
   const ctrl = document.getElementById(control);
-  console.log(ctrl);
   ctrl.addEventListener('mousedown', () => handler(index));
   ctrl.addEventListener('mouseup', () => mouseDown = false);
 })
-
+  
 export function drawThumb(img, label) {
   if (thumbDisplayed[label] == null) {
     const thumbCanvas = document.getElementById(CONTROLS[label] + '-thumb');

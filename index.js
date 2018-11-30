@@ -23,7 +23,7 @@ import {Webcam} from './webcam';
 
 // The number of classes we want to predict. In this example, we will be
 // predicting 4 classes for up, down, left, and right.
-const NUM_CLASSES = 4;
+const NUM_CLASSES = ui.numClasses();
 
 // A webcam class that generates Tensors from the images from the webcam.
 const webcam = new Webcam(document.getElementById('webcam'));
