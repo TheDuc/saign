@@ -369,3 +369,14 @@ header b {
   padding: 30px;
   line-height: 30px;
 }
+
+.output {
+  position: fixed;
+  font-size: 60px;
+  padding: 40px;
+  top: 40vh;
+  text-align: center;
+  width: 100%;
+  color: white;
+  text-shadow: 0 0 6px black;
+}
